@@ -1,6 +1,6 @@
 const API_PRODUCTS = "https://api.escuelajs.co/api/v1/products";
 
-// Ảnh fallback nội bộ
+
 const PLACEHOLDER_IMG =
   "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='85'%3E%3Crect width='100%25' height='100%25' fill='%23f2f2f2'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='12'%3ENo%20Image%3C/text%3E%3C/svg%3E";
 
@@ -8,9 +8,9 @@ let ALL_PRODUCTS = [];
 let currentPage = 1;
 let pageSize = 10;
 
-// sort state
-let sortBy = null;        // "price" | "title" | null
-let sortOrder = "asc";    // "asc" | "desc"
+
+let sortBy = null;        
+let sortOrder = "asc";    
 
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("btnReload").addEventListener("click", getAll);
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // sort buttons
+  
   document.getElementById("btnSortPrice").addEventListener("click", () => {
     toggleSort("price");
   });
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleSort("title");
   });
 
-  // init size
+  
   pageSize = Number(document.getElementById("pageSizeSelect").value) || 10;
 
   getAll();
@@ -83,11 +83,7 @@ async function getAll() {
   }
 }
 
-/** Toggle sort for a field:
- * - click lần 1: asc
- * - click lần 2: desc
- * - click field khác: chuyển field mới về asc
- */
+
 function toggleSort(field) {
   if (sortBy === field) {
     sortOrder = sortOrder === "asc" ? "desc" : "asc";
@@ -96,7 +92,7 @@ function toggleSort(field) {
     sortOrder = "asc";
   }
 
-  // cập nhật text nút
+  
   updateSortButtonsUI();
 
   currentPage = 1;
@@ -110,7 +106,7 @@ function updateSortButtonsUI() {
   btnPrice.classList.toggle("active", sortBy === "price");
   btnTitle.classList.toggle("active", sortBy === "title");
 
-  // label hiển thị
+  
   if (sortBy === "price") {
     btnPrice.textContent = sortOrder === "asc" ? "Giá ↑" : "Giá ↓";
   } else {
@@ -129,13 +125,13 @@ function getFilteredAndSorted() {
     .trim()
     .toLowerCase();
 
-  // 1) filter
+  
   let data = ALL_PRODUCTS.filter((p) => {
     const title = String(p?.title ?? "").toLowerCase();
     return title.includes(q);
   });
 
-  // 2) sort (copy để không làm hỏng ALL_PRODUCTS)
+  
   data = [...data];
 
   if (sortBy === "price") {
@@ -243,5 +239,5 @@ function escapeHtml(text) {
     .replaceAll("'", "&#039;");
 }
 
-// cập nhật UI sort ban đầu
+
 document.addEventListener("DOMContentLoaded", updateSortButtonsUI);

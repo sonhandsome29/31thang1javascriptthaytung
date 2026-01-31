@@ -73,7 +73,7 @@ thead th {
   z-index: 1;
 }
 
-/* 1 dòng trắng, 1 dòng đen */
+
 tbody tr:nth-child(odd) {
   background: #ffffff;
   color: #111;
@@ -84,21 +84,21 @@ tbody tr:nth-child(even) {
   color: #ffffff;
 }
 
-/* Cột */
+
 .col-id { width: 70px; white-space: nowrap; }
 .col-title { min-width: 240px; }
 .col-price { width: 110px; white-space: nowrap; }
 .col-category { width: 140px; }
 .col-images { width: 420px; }
 
-/* Danh sách ảnh trong 1 ô */
+
 .img-list {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
 
-/* Khung ảnh cố định size */
+
 .img-box {
   width: 120px;
   height: 85px;
@@ -111,7 +111,7 @@ tbody tr:nth-child(even) {
   border: 1px solid rgba(0,0,0,0.08);
 }
 
-/* HIỂN THỊ TOÀN BỘ HÌNH (không cắt) */
+
 .img-box img {
   width: 100%;
   height: 100%;
