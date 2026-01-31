@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - Products</title>
+
+  <link rel="stylesheet" href="./dashboard.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Dashboard - Products</h1>
+
+    <div class="toolbar">
+  <button id="btnReload">Tải lại</button>
+
+  <input
+    id="searchTitle"
+    class="search-input"
+    type="text"
+    placeholder="Tìm theo title..."
+    autocomplete="off"
+  />
+
+  <button id="btnSortPrice" class="btn-sort" data-order="asc">Giá ↑</button>
+  <button id="btnSortTitle" class="btn-sort" data-order="asc">Tên A→Z</button>
+
+  <label class="page-size">
+    Hiển thị:
+    <select id="pageSizeSelect">
+      <option value="5">5</option>
+      <option value="10" selected>10</option>
+      <option value="20">20</option>
+    </select>
+    / trang
+  </label>
+
+  <span class="status" id="statusText">Sẵn sàng</span>
+</div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th class="col-id">ID</th>
+            <th class="col-title">Title</th>
+            <th class="col-price">Price</th>
+            <th class="col-category">Category</th>
+            <th class="col-images">Images</th>
+          </tr>
+        </thead>
+        <tbody id="products-tbody"></tbody>
+      </table>
+    </div>
+
+    <div class="pagination">
+      <button id="btnPrev">Prev</button>
+      <span id="pageInfo">Page 1 / 1</span>
+      <button id="btnNext">Next</button>
+    </div>
+
+    <p class="muted">
+      API: https://api.escuelajs.co/api/v1/products
+    </p>
+  </div>
+
+  <script src="./dashboard.js"></script>
+</body>
+</html>
